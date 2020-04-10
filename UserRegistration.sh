@@ -1,5 +1,6 @@
 #!/bin/bash
-#Function
+
+#Function check first name
 function checkFirstName() {
 	NAMING_PATTERN="^[A-Z][a-z]{3,15}$"
 	firstName=""
@@ -12,6 +13,20 @@ function checkFirstName() {
 	fi
 }
 
+#Function check last name
+function checkLastName() {
+	NAMING_PATTERN="^[A-Z][a-z]{3,15}$"
+	lastName=""
+	read -p "Ënter Last Name : " lastName
+	if [[ $lastName =~ $NAMING_PATTERN ]]
+	then
+		echo "The last name is Valid"
+	else
+		echo "The last name is Invalid"
+	fi
+}
+
 #Main
 echo "~~~~~Welcome to User Registration~~~~"
 checkFirstName
+checkLastName
