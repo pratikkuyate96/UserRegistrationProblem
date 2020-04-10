@@ -22,17 +22,9 @@ function checkLastName() {
 	then
 		echo "The last name is Valid"
 	else
-
-
-
-
-
-
 		echo "The last name is Invalid"
 	fi
 }
-
-
 
 #Function to check Email Id valid or not
 function checkEmailId {
