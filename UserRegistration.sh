@@ -39,8 +39,22 @@ function checkEmailId {
 	fi
 }
 
+#Function to check minimum 8 character
+function checkPassword {
+	PASSWORD_PATTERN="[a-zA-Z0-9]{8,30}$"
+	password=""
+	read -p "Enter password : " password
+	if [[ $password =~ $PASSWORD_PATTERN ]]
+	then
+		echo "The password is valid"
+	else
+		echo "The password is invalid"
+	fi
+}
+
 #Main
 echo "~~~~~Welcome to User Registration~~~~"
 checkFirstName
 checkLastName
 checkEmailId
+checkPassword
