@@ -22,17 +22,9 @@ function checkLastName() {
 	then
 		echo "The last name is Valid"
 	else
-
-
-
-
-
-
 		echo "The last name is Invalid"
 	fi
 }
-
-
 
 #Function to check Email Id valid or not
 function checkEmailId {
@@ -47,8 +39,22 @@ function checkEmailId {
 	fi
 }
 
+#Function to check Mobile number valid or not
+function checkMobileNumber {
+	MOBILE_NO_PATTERN="^[0-9]{2}[ ][6-9]{1}[0-9]{9}$"
+	mobileNumber=""
+	read -p "Enter your mobile number : " mobileNumber
+	if [[ $mobileNumber =~ $MOBILE_NO_PATTERN ]]
+	then
+		echo "The mobile number is valid"
+	else
+		echo "The mobile number is invalid"
+	fi
+}
+
 #Main
 echo "~~~~~Welcome to User Registration~~~~"
 checkFirstName
 checkLastName
 checkEmailId
+checkMobileNumber
