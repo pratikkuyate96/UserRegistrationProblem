@@ -42,14 +42,16 @@ function checkEmailId {
 #Function to check Password valid or not
 function checkPassword {
 	#Rule1: To checked minimum 8 character
-	PASSWORD_PATTERN="[a-zA-Z0-9]{8,30}$"
+	PASSWORD_PATTERN1="[a-z]{8,}$"
 
 	#Rule2: To checked at least one upper case
-	PASSWORD_PATTERN="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+	PASSWORD_PATTERN2="^[a-z][A-Z]{8,}$"
 
+	#Rule3: To checked at least one numeric number
+	PASSWORD_PATTERN3="^[a-zA-Z0-9]{8,}$"
 	password=""
 	read -p "Enter password : " password
-	if [[ $password =~ $PASSWORD_PATTERN ]]
+	if [[ $password =~ $PASSWORD_PATTERN3 ]]
 	then
 		echo "The password is valid"
 	else
