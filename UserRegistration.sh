@@ -2,20 +2,21 @@
 
 #Function to check first name valid or not
 function checkFirstName() {
-	NAMING_PATTERN="^[A-Z][a-z]{3}$"
+	NAMING_PATTERN="^[A-Z][a-z]{3,}$"
 	firstName=""
 	read -p "Enter First Name : " firstName
 	if [[ $firstName =~ $NAMING_PATTERN ]]
 	then
 		echo "The name is Valid"
 	else
-		echo "The name is Invalid! Please enter first capital letter"
+		echo "The name is Invalid!"
+		echo "Please enter first capital letter"
 	fi
 }
 
 #Function to check last name valid or not
 function checkLastName() {
-	NAMING_PATTERN="^[A-Z][a-z]{3}$"
+	NAMING_PATTERN="^[A-Z][a-z]{3,}$"
 	lastName=""
 	read -p "Ënter Last Name : " lastName
 	if [[ $lastName =~ $NAMING_PATTERN ]]
@@ -23,6 +24,7 @@ function checkLastName() {
 		echo "The last name is Valid"
 	else
 		echo "The last name is Invalid"
+		echo "Please enter first capital letter"
 	fi
 }
 
@@ -33,9 +35,9 @@ function checkEmailId {
 	read -p "Enter Email Id : " emailId
 	if [[ $emailId =~ $EMAIL_ID_PATTERN ]]
 	then
-		echo "The email id is valid "
+		echo "The email id is Valid "
 	else
-		echo "The email id is invalid"
+		echo "The email id is Invalid"
 	fi
 }
 
@@ -49,13 +51,22 @@ function checkPassword {
 
 	#Rule3: To checked at least one numeric number
 	PASSWORD_PATTERN3="^[a-zA-Z0-9]{8,}$"
+
+	#Rule4: To checked exactly one special character
+	PASSWORD_PATTERN4="^[A-Za-z0-9]{1,}[a-zA-Z0-9]{8,}[!@#$%^&*-]{1}[a-zA-Z0-9]{1,}$"
 	password=""
+	echo "NOTE:-"
+	echo "Password must include at least 8 characters"
+	echo "Password must include at least one uppercase letter"
+	echo "Password must include at least one digit from 0 to 9"
+	echo "Password must include exactly one special character"
 	read -p "Enter password : " password
-	if [[ $password =~ $PASSWORD_PATTERN3 ]]
+	if [[ $password =~ $PASSWORD_PATTERN4 ]]
 	then
-		echo "The password is valid"
+		echo "The password is Valid"
 	else
-		echo "The password is invalid"
+		echo "The password is Invalid!"
+		echo "Please follow NOTE and enter valid password"
 	fi
 }
 
