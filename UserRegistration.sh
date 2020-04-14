@@ -28,6 +28,19 @@ function checkLastName() {
 	fi
 }
 
+#Function to check Mobile number valid or not
+function checkMobileNumber {
+	MOBILE_NO_PATTERN="^[0-9]{2}[ ][6-9]{1}[0-9]{9}$"
+	mobileNumber=""
+	read -p "Enter your mobile number : " mobileNumber
+	if [[ $mobileNumber =~ $MOBILE_NO_PATTERN ]]
+	then
+		echo "The mobile number is valid"
+	else
+		echo "The mobile number is invalid"
+	fi
+}
+
 #Function to check Email Id valid or not
 function checkEmailId {
 	EMAIL_ID_PATTERN="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
@@ -74,5 +87,6 @@ function checkPassword {
 echo "~~~~~Welcome to User Registration~~~~"
 checkFirstName
 checkLastName
+checkMobileNumber
 checkEmailId
 checkPassword
